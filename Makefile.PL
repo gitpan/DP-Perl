@@ -4,7 +4,9 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'		=> 'DP::Perl',
     'VERSION_FROM'	=> 'Perl.pm', # finds $VERSION
-    'PREREQ_PM'		=> {}, # e.g., Module::Name => 1.1
+    'PREREQ_PM'		=> { # e.g., Module::Name => 1.1
+						Test::Easy        => 0,
+	                   },
     ($] >= 5.005 ? (
       ABSTRACT_FROM => 'Perl.pm', 
       AUTHOR     => 'Daniel Peder <Daniel.Peder@infoset.com>',

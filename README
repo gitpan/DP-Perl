@@ -26,19 +26,39 @@ FUNCTIONS
          @values_by_filtered_keys = hf( $precompiled_regex, %hash_array )
          %hash_array_of_filtered_keys = %{hf( $precompiled_regex, %hash_array )}
 
-        example
+        EXAMPLE:
 
          %hash   = (key_ax=>'val_ax', key_ay=>'val_ay', key_bx=>'val_bx', key_by=>'val_by');
          @values = hf(qr/\w+/,%hash);
          %values = %{hf(qr/\w+/,%hash)};
  
+    set_hmv
+         set_hmv( \%hash, $key, $val, [ $force_single ] );
+
+        set hash multi-value - for multiple appearances of same key are
+        values stored as arrayref rather than direct value. Usefull when
+        parsing cooikes or url with multiple param names.
+
+        $force_single set to 1 drops/replaces previously stored values with
+        the $val for the $key specified.
+
+        SEE ALSO get_hmv
+
+    get_hmv
+         get_hmv( \%hash, $key, [ $index ] );
+
+        get hash multi-value - counterpart for set_hmv.
+
+        TIP: use *$index = -1* to get last value or other negative values to
+        index from end of values array. (Same way as with common perl array)
+
 FILES
 
 REVISION
 
      project started: 2003/05/09
 
-     $Id: Perl.pm_rev 1.4 2004/01/01 21:07:22 root Exp root $
+     $Id: Perl.pm_rev 1.5 2004/01/08 11:10:30 root Exp root $
 
 AUTHOR
 
