@@ -5,19 +5,18 @@
 #
 #
 #------------------------------------------------------
-# 2003/05/09 - $Date: 2003/12/12 11:08:58 $
+# 2003/05/09 - $Date: 2004/01/01 21:07:22 $
 # (C) Daniel Peder & Infoset s.r.o., all rights reserved
 # http://www.infoset.com, Daniel.Peder@infoset.com
 #------------------------------------------------------
-# $Revision: 1.3 $
-# $Date: 2003/12/12 11:08:58 $
-# $Id: Perl.pm_rev 1.3 2003/12/12 11:08:58 root Exp root $
+# $Revision: 1.4 $
+# $Date: 2004/01/01 21:07:22 $
+# $Id: Perl.pm_rev 1.4 2004/01/01 21:07:22 root Exp root $
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 #
-#	POD SECTION
+# SECTION: pod intro
 #
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 
 =head1 NAME
 
@@ -42,10 +41,16 @@ nothing
 
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+#
+# SECTION: package
+#
 
 	package DP::Perl;
 	
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+#
+# SECTION: exporter
+#
 
     require Exporter;
 	@ISA = qw(Exporter);
@@ -54,16 +59,29 @@ nothing
 	%EXPORT_TAGS = ( ALL => \@EXPORT_OK );
 				  
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+#
+# SECTION: constants
+#
 
 	# use constant ConstName => 'ConstValue';
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+#
+# SECTION: version
+#
 
-	$VERSION           = '0.101';
-	$REVISION          = (qw$Revision: 1.3 $)[1];
-	$REVISION_DATETIME = join(' ',(qw$Date: 2003/12/12 11:08:58 $)[1,2]);
+	use vars qw( $VERSION $VERSION_LABEL $REVISION $REVISION_DATETIME );
+
+	$VERSION           = '0.20';
+	
+	$REVISION          = (qw$Revision: 1.4 $)[1];
+	$REVISION_DATETIME = join(' ',(qw$Date: 2004/01/01 21:07:22 $)[1,2]);
+	$VERSION_LABEL     = "$VERSION (rev. $REVISION $REVISION_DATETIME)";
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+#
+# SECTION: modules use
+#
 
 	require 5.005_62;
 
@@ -71,6 +89,9 @@ nothing
 	use warnings;
 	
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+#
+# SECTION: functions
+#
 
 =head1 FUNCTIONS
 
@@ -107,6 +128,41 @@ sub all_defined
 
 
 
+=item hf (hash filter)
+
+ @values_by_filtered_keys = hf( $precompiled_regex, %hash_array )
+ %hash_array_of_filtered_keys = %{hf( $precompiled_regex, %hash_array )}
+
+B<example>
+
+ %hash   = (key_ax=>'val_ax', key_ay=>'val_ay', key_bx=>'val_bx', key_by=>'val_by');
+ @values = hf(qr/\w+/,%hash);
+ %values = %{hf(qr/\w+/,%hash)};
+ 
+=cut
+
+### --------
+sub hf ($\%) 
+### --------
+{
+	my( $re, $h ) = @_;
+	if( wantarray )
+	{
+		return @$h{grep(/$re/,keys(%$h))}
+	}
+	else
+	{
+		return {map(($_,$$h{$_}),grep(/$re/,keys(%$h)))}
+	}
+}
+
+
+
+
+
+
+
+
 
 
 =back
@@ -118,9 +174,8 @@ sub all_defined
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 #
-#	POD SECTION
+# SECTION: pod epilogue
 #
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 
 =head1 FILES
 
@@ -129,7 +184,7 @@ sub all_defined
 
 B<<  project started: 2003/05/09 >>
 
- $Id: Perl.pm_rev 1.3 2003/12/12 11:08:58 root Exp root $
+ $Id: Perl.pm_rev 1.4 2004/01/01 21:07:22 root Exp root $
 
 
 =head1 AUTHOR
@@ -138,9 +193,6 @@ B<<  project started: 2003/05/09 >>
 
  <Daniel.Peder@Infoset.COM>
  http://www.infoset.com
-
- Czech Republic national flag: 
- LeftSideBlueTriangleRightSideHorizontalSplitTopWhiteBottomRed
 
 =head1 SEE ALSO
 
