@@ -1,0 +1,44 @@
+NAME
+
+    DP::Perl - several languange extensions
+
+SYNOPSIS
+
+      use DP::Perl qw( :ALL );
+  
+      ...
+      ...
+  
+DESCRIPTION
+
+  EXPORT
+
+    nothing
+
+FUNCTIONS
+
+    all_defined
+         $bool = all_defined( @values )
+ 
+        Return FALSE if some of values in array are undefined
+
+FILES
+
+REVISION
+
+     project started: 2003/05/09
+
+     $Id: Perl.pm_rev 1.2 2003/11/05 23:31:00 root Exp root $
+
+AUTHOR
+
+     Daniel Peder
+
+     <Daniel.Peder@Infoset.COM>
+     http://www.infoset.com
+
+     Czech Republic national flag: 
+     LeftSideBlueTriangleRightSideHorizontalSplitTopWhiteBottomRed
+
+SEE ALSO
+
