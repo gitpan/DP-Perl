@@ -5,13 +5,13 @@
 #
 #
 #------------------------------------------------------
-# 2003/05/09 - $Date: 2003/11/05 23:31:00 $
+# 2003/05/09 - $Date: 2003/12/12 11:08:58 $
 # (C) Daniel Peder & Infoset s.r.o., all rights reserved
 # http://www.infoset.com, Daniel.Peder@infoset.com
 #------------------------------------------------------
-# $Revision: 1.2 $
-# $Date: 2003/11/05 23:31:00 $
-# $Id: Perl.pm_rev 1.2 2003/11/05 23:31:00 root Exp root $
+# $Revision: 1.3 $
+# $Date: 2003/12/12 11:08:58 $
+# $Id: Perl.pm_rev 1.3 2003/12/12 11:08:58 root Exp root $
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 #
@@ -59,9 +59,9 @@ nothing
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 
-	$VERSION           = '0.01';
-	$REVISION          = (qw$Revision: 1.2 $)[1];
-	$REVISION_DATETIME = join(' ',(qw$Date: 2003/11/05 23:31:00 $)[1,2]);
+	$VERSION           = '0.101';
+	$REVISION          = (qw$Revision: 1.3 $)[1];
+	$REVISION_DATETIME = join(' ',(qw$Date: 2003/12/12 11:08:58 $)[1,2]);
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 
@@ -129,7 +129,7 @@ sub all_defined
 
 B<<  project started: 2003/05/09 >>
 
- $Id: Perl.pm_rev 1.2 2003/11/05 23:31:00 root Exp root $
+ $Id: Perl.pm_rev 1.3 2003/12/12 11:08:58 root Exp root $
 
 
 =head1 AUTHOR

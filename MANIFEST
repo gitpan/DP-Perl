@@ -1,5 +1,6 @@
 Makefile.PL
 MANIFEST			This list of files
+META.yml
 Perl.pm
 README
-META.yml                                Module meta-data (added by MakeMaker)
+t/use.t
